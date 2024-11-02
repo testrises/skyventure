@@ -34,7 +34,7 @@ process
   // start express server
   app.listen(3000)
 
-  //export default app;
+  export default app;
 
 
   console.log("Express server has started ")
