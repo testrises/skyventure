@@ -1,21 +1,15 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - "3000:3000"
-    environment:
-      - PORT=3000
-      - MONGO_URI=mongodb+srv://nsimamfon:QkvGoIqnqGtWILDK@production.8cohh41.mongodb.net/?retryWrites=true&w=majority&appName=production
     depends_on:
       - mongo
-
+    environment:
+      - MONGO_URI=mongodb+srv://nsimamfon:QkvGoIqnqGtWILDK@production.8cohh41.mongodb.net/?retryWrites=true&w=majority&appName=production
   mongo:
-    image: mongo:5.0
-    ports:
-      - "27018:27018"
+    image: mongo:4.4
     volumes:
       - mongo-data:/data/db
 
