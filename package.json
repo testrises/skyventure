@@ -21,6 +21,7 @@
    },
    "scripts": {
       "start": "ts-node src/index.ts",
-      "run": "nodemon src/index.ts"
+      "dev": "nodemon src/index.ts",
+       "tsc": "tsc"
    }
 }

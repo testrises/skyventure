@@ -9,7 +9,7 @@ router.post('/', authentification, createProject);
 router.put('/:id', authentification, updateProject)
 router.delete('/:id', authentification, deleteProject)
 router.get('/:id', authentification, viewProjectById)
-router.get('/:id/all',authentification , viewUserProjects)
+router.get('/:id/list',authentification , viewUserProjects)
 
 
 
