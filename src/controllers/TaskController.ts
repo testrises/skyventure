@@ -227,7 +227,7 @@ export const viewUserTasks = async (req :Request, res : Response) =>{
             .json({ message: "you don not have the privilege to view these tasks"});
         }
         
-        //now I build
+        //now I build filter
 
         const filter: { status?: string; due_date?: { $lte?: Date } , deleted_at?: Date } = {};
 
