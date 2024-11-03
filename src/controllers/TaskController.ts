@@ -202,9 +202,14 @@ export const viewTaskById = async (req :Request, res : Response) =>{
 export const viewUserTasks = async (req :Request, res : Response) =>{
    
     const {project_id, status, due_date} = req.query;
+
+    let {limit , page } = req.query;
     
     console.log(req.query)
     try{
+
+        if(!limit){ limit = 3;}
+        if(!page){ page = 1}
         
         const pr = await Project.findById(project_id);
 
@@ -236,11 +241,14 @@ export const viewUserTasks = async (req :Request, res : Response) =>{
           
           filter.deleted_at = null;
 
-          const tasks = await Task.find(filter);
+          const skip = (page - 1) * limit;
+          const tasks = await Task.find(filter).sort({ created_at: -1 }) 
+          .limit(limit)
+          .skip(skip);
 
 
      
-    res.status(200).json({success:true, message:'task fetched', 'data':tasks})
+    res.status(200).json({success:true, message:'task fetched', 'data':tasks, 'page':page, 'limit':limit})
     }
     catch(err)
     {
