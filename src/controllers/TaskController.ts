@@ -278,7 +278,7 @@ export const viewUserTasks = async (req :Request, res : Response) =>{
         {
         return res
             .status(400)
-            .json({ message: "you don not have the privilege to view this task"});
+            .json({ message: "you don not have the privilege to update tasks in this project"});
         }
         
 

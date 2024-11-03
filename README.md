@@ -44,3 +44,11 @@ The app is dockerized , to run with docker, RUN  docker docker-compose up --buil
 #Integration test
 
 To run test, RUN  npm run test
+
+#Technical Requirements in the testrises
+
+It was requested that  pagination and sorting be applied in the task list. This is implemented in the API below
+
+https://mocknew.onrender.com/api/task?project_id=6726fd2216c014ca5853dd41&status=completed&due_date=2024-11-03&limit=4&page=2 (IN postman the API name is task/list)
+
+Soft delete is also applied in projects and tasks
